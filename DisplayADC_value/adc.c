@@ -14,7 +14,7 @@
 
 
 /***************************************************************************************************
-									void ADC_Init()
+					void ADC_Init()
 ****************************************************************************************************
  * I/P Arguments: none.
  * Return value	: none
@@ -46,15 +46,15 @@ void ADC_Init()
 ***************************************************************************************************/				 
 uint16_t ADC_GetAdcValue(uint8_t v_adcChannel_u8)
  {
-												/*select the corresponding channel 0~7*/
-   v_adcChannel_u8 &= 0b00000111;				/* AND operation with 7*/
+						/*select the corresponding channel 0~7*/
+   v_adcChannel_u8 &= 0b00000111;		/* AND operation with 7*/
    ADMUX = (ADMUX & 0xF8) | v_adcChannel_u8;	/* Clears the bottom 3 bits */
    
-   _delay_ms(10);								/* Wait for some time for the channel to get selected */
-   util_BitSet(ADCSRA,ADSC);					/* Start single conversion*/
+   _delay_ms(10);				/* Wait for some time for the channel to get selected */
+   util_BitSet(ADCSRA,ADSC);			/* Start single conversion*/
    
-   while(ADCSRA & (1<<ADSC));					/* Wait till the conversion is over */
-												/* ADIF will be set once ADC conversion is complete */
-	return (ADC);								/* Return the 10-bit result */
+   while(ADCSRA & (1<<ADSC));			/* Wait till the conversion is over */
+						/* ADIF will be set once ADC conversion is complete */
+	return (ADC);				/* Return the 10-bit result */
     					
  }
