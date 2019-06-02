@@ -23,37 +23,6 @@ uint16_t adc_result2 = 0;
 uint16_t adc_result3 = 0;
 char string[10];
 
-
-//void adc_init()
-//{
-	// Set the ADC reference voltage
-	//ADMUX |= (1 << REFS0) | (1 << MUX0) | (1  << MUX1) | (1 << MUX2);
-		
-	// ADC enable
-	//ADCSRA |= (1 << ADEN);
-	
-	// Set ADC prescaler to 64 - 115.2KHz
-	//ADCSRA |= (1 << ADPS2) | (1 << ADPS1);
-	
-//}
-
-// uint16_t adc_read(uint8_t ch)
-// {
-// 	ch &= 0b00000111;				// AND operation with 7
-// 	ADMUX = (ADMUX & 0xF8) | ch;	// clears the bottom 3 bits before ORing
-// 		
-// 	// start single convertion
-// 	// write ’1? to ADSC
-// 	ADCSRA |= (1<<ADSC);
-// 	
-// 	 // wait for conversion to complete
-// 	 // ADSC becomes ’0? again
-// 	 // till then, run loop continuously
-// 	 while(ADCSRA & (1<<ADSC));
-// 	 
-// 	return (ADC);
-// }
-
 int main(void)
 {
 	
